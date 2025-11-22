@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main()
+{
+    int a[100], n, i, j, temp;
+
+    printf("Enter number of elements (1 to 100): ");
+    scanf("%d", &n);
+
+    if (n <= 0 || n > 100)
+    {
+        printf("Error: Invalid number of elements.\n");
+        return 1;
+    }
+
+    printf("Enter elements:\n");
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    // Bubble Sort
+    for (i = 0; i < n - 1; i++)
+    {
+        for (j = 0; j < n - 1 - i; j++)
+        {
+            if (a[j] > a[j + 1])
+            {
+                // swap
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("Sorted array:\n");
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", a[i]);
+    }
+
+    return 0;
+}
